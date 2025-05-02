@@ -203,7 +203,7 @@ func run(ctx context.Context) error {
 		}
 	}
 	if opt.MCPServer {
-		workDir := "/tmp/kubectl-ai-mcp"
+		workDir := filepath.Join(os.TempDir(), "kubectl-ai-mcp")
 		if err := os.MkdirAll(workDir, 0755); err != nil {
 			return fmt.Errorf("error creating work directory: %w", err)
 		}
